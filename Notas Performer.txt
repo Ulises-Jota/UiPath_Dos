@@ -1,0 +1,23 @@
+﻿Temp	            Data\Temp	                          Temporay Folder to download monthly report
+YearReport          Data\YearReport	     Folder to collect Yearly repot
+
+Usé esos dos directorios también en mi Config (creo que YearReport no se va a crear ni usar).
+Para in_ReportsDownloadPath iría la variable Temp y para out_YearlyReportPath iría la variable YearReport para el config (puse la variable que indica el itinerario: YearlyReportPath).
+
+"Cree una variable con el nombre ReportYear. Utilice una actividad Assign para
+definir su valor como el año anterior." (Pag 11)
+En Process, asigné a la variable lo siguiente: (Now.Year - 1).ToString
+
+"Añada un nuevo elemento en el archivo Config, en la hoja Settings, para indicar la ruta de acceso de la carpeta donde se descargan los informes. Complete el campo Name escribiendo ReportsDownloadPath y el campo Value con Data\Temp." (Pag 12)
+Dejé "Temp" en vez de "ReportsDownloadPath".
+
+Click Target Year (Pag 13) no me quedó igual el selector.
+
+En la activity ReadCSV en System1_CreateYearlyReport, tildé la opción Has Headers.
+
+"Utilizando una actividad Type Into, rellene el valor de
+ReportFilePath en el campo File Name de la ventana Save As.
+Seleccione la propiedad Simulate Type.
+● Añada una actividad Click y diríjala hacia el botón Save. Active
+la propiedad Simulate Click." (Pag 15)
+No me funcionó así que deshabilité el Click en Save y en TypeInto escribe en modo Default (en SimulateType guarda el archivo con otro nombre y en SendWindowsMessage escribe de otra forma el nombre de archivo)
